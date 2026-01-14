@@ -3,7 +3,7 @@
 @section('title'){{ Lang::has('categories.' . $category->slug) ? __('categories.' . $category->slug) : $category->name.' - ' }}@endsection
 
 @section('content')
-<div class="py-5 bg-primary bg-sections" style="background-image: url('{{asset('public/img-category')}}/{{ $category->image == '' ? 'default.jpg' : $category->image }}')">
+<div class="py-5 bg-primary bg-sections" style="background-image: url('{{asset('public/'.($category->image == '' ? 'img-category/default.jpg' : $category->image))}}')">
   <div class="btn-block text-center text-white position-relative">
     <h1>{{ Lang::has('categories.' . $category->slug) ? __('categories.' . $category->slug) : $category->name }}</h1>
     @if( $data->total() != 0 )

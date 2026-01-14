@@ -1,0 +1,42 @@
+================================================================================
+CATEGORY IMAGES INSTALLATION GUIDE FOR PRODUCTION
+================================================================================
+
+QUICK INSTALL (Recommended):
+----------------------------
+1. Upload these files to your production server:
+   - download_category_images.sh (or download_category_images.php)
+   - update_category_images.sql
+
+2. Run the download script:
+   
+   Option A - Bash Script:
+   chmod +x download_category_images.sh
+   ./download_category_images.sh
+   
+   Option B - PHP Script:
+   php download_category_images.php
+
+3. Update the database:
+   mysql -u username -p database_name < update_category_images.sql
+
+4. Done! Images should now appear on your categories page.
+
+================================================================================
+FILES PROVIDED:
+================================================================================
+1. download_category_images.sh    - Bash script to download all images
+2. download_category_images.php   - PHP script alternative
+3. update_category_images.sql      - SQL file to update database with image paths
+4. README_CATEGORY_IMAGES.md      - Detailed documentation
+
+================================================================================
+REQUIREMENTS:
+================================================================================
+- wget (for bash script) or PHP with allow_url_fopen enabled (for PHP script)
+- Write permissions to public/img-category/ directory
+- MySQL access to update the database
+
+================================================================================
+For detailed instructions, see: README_CATEGORY_IMAGES.md
+================================================================================
