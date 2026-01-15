@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `business_messages` (
   KEY `business_messages_business_listing_id_foreign` (`business_listing_id`),
   KEY `business_messages_sender_id_foreign` (`sender_id`),
   KEY `business_messages_receiver_id_foreign` (`receiver_id`),
-  KEY `business_messages_business_listing_id_sender_id_receiver_id_index` (`business_listing_id`,`sender_id`,`receiver_id`),
+  KEY `business_messages_listing_sender_receiver_idx` (`business_listing_id`,`sender_id`,`receiver_id`),
   CONSTRAINT `business_messages_business_listing_id_foreign` FOREIGN KEY (`business_listing_id`) REFERENCES `business_listings` (`id`) ON DELETE CASCADE,
   CONSTRAINT `business_messages_sender_id_foreign` FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `business_messages_receiver_id_foreign` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
