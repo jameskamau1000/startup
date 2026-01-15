@@ -481,3 +481,34 @@ Route::get('payment/razorpay', 'RazorpayController@show')->name('razorpay');
 
 // Verify Transactions PayPal
 Route::get('paypal/verify', 'PayPalController@verifyTransaction')->name('paypal.success');
+
+/*
+|--------------------------------------------------------------------------
+| B2B Marketplace Routes
+|--------------------------------------------------------------------------
+*/
+
+// Marketplace Public Routes
+Route::get('marketplace', 'MarketplaceController@index')->name('marketplace.index');
+Route::get('marketplace/listing/{slug}', 'MarketplaceController@show')->name('marketplace.listing.show');
+
+// Business Listing Management (Auth Required)
+Route::middleware('auth')->group(function() {
+    Route::get('marketplace/listings/create', 'BusinessListingController@create')->name('marketplace.listing.create');
+    Route::post('marketplace/listings', 'BusinessListingController@store')->name('marketplace.listing.store');
+    Route::get('marketplace/listings/{id}/edit', 'BusinessListingController@edit')->name('marketplace.listing.edit');
+    Route::put('marketplace/listings/{id}', 'BusinessListingController@update')->name('marketplace.listing.update');
+    Route::delete('marketplace/listings/{id}', 'BusinessListingController@destroy')->name('marketplace.listing.destroy');
+    Route::get('marketplace/my-listings', 'BusinessListingController@myListings')->name('marketplace.my-listings');
+    
+    // Buyer/Investor Routes
+    Route::get('marketplace/buyer/register', 'BuyerController@register')->name('marketplace.buyer.register');
+    Route::post('marketplace/buyer/register', 'BuyerController@store')->name('marketplace.buyer.store');
+    Route::get('marketplace/buyer/dashboard', 'BuyerController@dashboard')->name('marketplace.buyer.dashboard');
+    Route::post('marketplace/listing/{id}/inquiry', 'BuyerController@sendInquiry')->name('marketplace.listing.inquiry');
+    
+    // Messaging Routes
+    Route::post('marketplace/listing/{id}/message', 'BusinessMessageController@send')->name('marketplace.message.send');
+    Route::get('marketplace/messages', 'BusinessMessageController@conversations')->name('marketplace.messages');
+    Route::get('marketplace/messages/{listingId}', 'BusinessMessageController@conversation')->name('marketplace.message.conversation');
+});
