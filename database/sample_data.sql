@@ -4,15 +4,15 @@
 -- ============================================
 
 -- Sample Users
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `avatar`, `status`, `role`, `countries_id`, `created_at`, `updated_at`) VALUES
-(2, 'Sarah Kimani', 'sarah.kimani@example.com', 'sarahkimani', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(3, 'James Ochieng', 'james.ochieng@example.com', 'jamesochieng', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(4, 'Amina Hassan', 'amina.hassan@example.com', 'aminahassan', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(5, 'David Mwangi', 'david.mwangi@example.com', 'davidmwangi', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(6, 'Grace Wanjiku', 'grace.wanjiku@example.com', 'gracewanjiku', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(7, 'Peter Kipchoge', 'peter.kipchoge@example.com', 'peterkipchoge', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(8, 'Mary Njeri', 'mary.njeri@example.com', 'marynjeri', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW()),
-(9, 'John Kamau', 'john.kamau@example.com', 'johnkamau', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', NOW(), NOW());
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `avatar`, `status`, `role`, `countries_id`, `remember_token`, `token`, `confirmation_code`, `paypal_account`, `payment_gateway`, `bank`, `oauth_uid`, `oauth_provider`, `phone`, `street`, `created_at`, `updated_at`, `date`) VALUES
+(2, 'Sarah Kimani', 'sarah.kimani@example.com', 'sarahkimani', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(3, 'James Ochieng', 'james.ochieng@example.com', 'jamesochieng', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(4, 'Amina Hassan', 'amina.hassan@example.com', 'aminahassan', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(5, 'David Mwangi', 'david.mwangi@example.com', 'davidmwangi', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(6, 'Grace Wanjiku', 'grace.wanjiku@example.com', 'gracewanjiku', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(7, 'Peter Kipchoge', 'peter.kipchoge@example.com', 'peterkipchoge', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(8, 'Mary Njeri', 'mary.njeri@example.com', 'marynjeri', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
+(9, 'John Kamau', 'john.kamau@example.com', 'johnkamau', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW());
 
 -- Sample Crowdfunding Campaigns
 INSERT INTO `campaigns` (`id`, `user_id`, `title`, `description`, `goal`, `location`, `categories_id`, `status`, `token_id`, `small_image`, `large_image`, `featured`, `finalized`, `date`) VALUES
