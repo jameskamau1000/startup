@@ -82,7 +82,7 @@
               <td>{{ $listing->created_at->format('M d, Y') }}</td>
               <td>
                 <div class="btn-group" role="group">
-                  <a href="{{ route('marketplace.listings.show', $listing->slug) }}" class="btn btn-sm btn-outline-primary" title="View">
+                  <a href="{{ route('marketplace.listing.show', $listing->slug) }}" class="btn btn-sm btn-outline-primary" title="View">
                     <i class="fa fa-eye"></i>
                   </a>
                   <a href="{{ route('marketplace.listing.edit', $listing->id) }}" class="btn btn-sm btn-outline-secondary" title="Edit">
