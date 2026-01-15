@@ -274,7 +274,7 @@
         <h5 class="modal-title" id="inquiryModalLabel">Send Inquiry</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="{{ route('marketplace.listings.inquiry', $listing->slug) }}" method="POST">
+      <form action="{{ route('marketplace.listing.inquiry', $listing->id) }}" method="POST">
         @csrf
         <div class="modal-body">
           <div class="form-group mb-3">
