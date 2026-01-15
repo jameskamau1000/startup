@@ -61,6 +61,21 @@
                 @endif
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" href="#" id="dropdownMarketplace" data-bs-toggle="dropdown" aria-expanded="false">
+              Marketplace
+            </a>
+            <div class="dropdown-menu dropdown-menu-macos dd-menu" aria-labelledby="dropdownMarketplace">
+              <a class="dropdown-item @if(Request::path() == "marketplace")active @endif" href="{{ route('marketplace.index') }}">Browse Businesses</a>
+              @auth
+              <a class="dropdown-item @if(Request::path() == "marketplace/listings/create")active @endif" href="{{ route('marketplace.listing.create') }}">Sell Your Business</a>
+              <a class="dropdown-item @if(Request::path() == "marketplace/my-listings")active @endif" href="{{ route('marketplace.my-listings') }}">My Listings</a>
+              <a class="dropdown-item @if(Request::path() == "marketplace/buyer/dashboard")active @endif" href="{{ route('marketplace.buyer.dashboard') }}">Buyer Dashboard</a>
+              @else
+              <a class="dropdown-item" href="{{ route('marketplace.buyer.register') }}">Become a Buyer/Investor</a>
+              @endauth
+            </div>
+          </li>
           @if (App\Models\Categories::count() != 0)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownCategories"data-bs-toggle="dropdown" aria-expanded="false">

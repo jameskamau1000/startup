@@ -181,6 +181,48 @@
 	</div>
 	@endif
 
+  <!-- B2B Marketplace Section -->
+  <div class="section py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="display-5 mb-4">Buy, Sell, and Invest in Businesses</h2>
+          <p class="lead mb-4">Connect with verified buyers, sellers, and investors across Africa. Find your next business opportunity or exit at premium valuation.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="{{ route('marketplace.index') }}" class="btn btn-primary btn-lg">Browse Businesses</a>
+            @auth
+            <a href="{{ route('marketplace.listing.create') }}" class="btn btn-outline-primary btn-lg">Sell Your Business</a>
+            @else
+            <a href="{{ route('marketplace.buyer.register') }}" class="btn btn-outline-primary btn-lg">Become a Buyer</a>
+            @endauth
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row text-center">
+            <div class="col-md-4 mb-3">
+              <div class="p-4 bg-white rounded shadow-sm">
+                <h3 class="text-primary mb-2">{{ \App\Models\BusinessListing::where('status', 'active')->count() }}+</h3>
+                <p class="mb-0">Active Listings</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-4 bg-white rounded shadow-sm">
+                <h3 class="text-success mb-2">{{ \App\Models\Buyer::where('verification_status', 'verified')->count() }}+</h3>
+                <p class="mb-0">Verified Buyers</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="p-4 bg-white rounded shadow-sm">
+                <h3 class="text-info mb-2">15+</h3>
+                <p class="mb-0">Countries</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="jumbotron m-0 text-white text-center position-relative rounded-0">
     <div class="parallax-cover bg-cover"></div>
     <div class="container position-relative">
