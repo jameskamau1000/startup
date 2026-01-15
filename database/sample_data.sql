@@ -4,7 +4,7 @@
 -- ============================================
 
 -- Sample Users
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `avatar`, `status`, `role`, `countries_id`, `remember_token`, `token`, `confirmation_code`, `paypal_account`, `payment_gateway`, `bank`, `oauth_uid`, `oauth_provider`, `phone`, `street`, `created_at`, `updated_at`, `date`) VALUES
+INSERT IGNORE INTO `users` (`id`, `name`, `email`, `username`, `password`, `avatar`, `status`, `role`, `countries_id`, `remember_token`, `token`, `confirmation_code`, `paypal_account`, `payment_gateway`, `bank`, `oauth_uid`, `oauth_provider`, `phone`, `street`, `created_at`, `updated_at`, `date`) VALUES
 (2, 'Sarah Kimani', 'sarah.kimani@example.com', 'sarahkimani', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
 (3, 'James Ochieng', 'james.ochieng@example.com', 'jamesochieng', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
 (4, 'Amina Hassan', 'amina.hassan@example.com', 'aminahassan', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW()),
@@ -15,7 +15,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `avatar`, `s
 (9, 'John Kamau', 'john.kamau@example.com', 'johnkamau', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'default.jpg', 'active', 'normal', 'KE', '', '', '', '', '', '', '', '', 0, '', NOW(), NOW(), NOW());
 
 -- Sample Crowdfunding Campaigns
-INSERT INTO `campaigns` (`id`, `user_id`, `title`, `description`, `goal`, `location`, `categories_id`, `status`, `token_id`, `small_image`, `large_image`, `featured`, `finalized`, `video`, `date`) VALUES
+INSERT IGNORE INTO `campaigns` (`id`, `user_id`, `title`, `description`, `goal`, `location`, `categories_id`, `status`, `token_id`, `small_image`, `large_image`, `featured`, `finalized`, `video`, `date`) VALUES
 (1, 2, 'AI-Powered Healthcare App for Rural Communities', 'Developing an innovative mobile application that uses artificial intelligence to provide healthcare consultations and medication reminders for rural communities in Kenya. The app will connect patients with qualified doctors via video calls and provide access to affordable healthcare services.', 2500000, 'Nairobi, Kenya', 1, 'active', '4ecc448c23bf93dfadaa2ff4e77e1eb9', 'campaign_1.jpg', 'campaign_1.jpg', '1', '0', '', NOW()),
 (2, 3, 'E-Learning Platform for Primary Schools', 'Creating a comprehensive e-learning platform specifically designed for primary school students in Kenya. The platform will include interactive lessons, quizzes, and progress tracking to improve educational outcomes in underserved areas.', 1800000, 'Mombasa, Kenya', 1, 'active', 'd93f202b78d3853fb6644562cbfee2d5', 'campaign_2.jpg', 'campaign_2.jpg', '1', '0', '', NOW()),
 (3, 4, 'Online Marketplace for Local Artisans', 'Building an e-commerce platform to connect local artisans and craftspeople with customers across Africa. The platform will help preserve traditional crafts while providing income opportunities for talented artisans.', 1500000, 'Kisumu, Kenya', 2, 'active', '4e339be1aa1ae83ab704c3fed24d8b18', 'campaign_3.jpg', 'campaign_3.jpg', '1', '0', '', NOW()),
@@ -52,7 +52,7 @@ INSERT INTO `campaigns` (`id`, `user_id`, `title`, `description`, `goal`, `locat
 (34, 3, 'African Print Clothing Line', 'Creating a clothing line that celebrates African prints and designs. The line will include modern, stylish pieces that incorporate traditional African patterns and fabrics.', 1700000, 'Kisumu, Kenya', 17, 'active', '486364265946bf6b0bc56815591d0ef1', 'campaign_34.jpg', 'campaign_34.jpg', '0', '0', '', NOW());
 
 -- Sample Business Listings
-INSERT INTO `business_listings` (`id`, `user_id`, `title`, `slug`, `description`, `short_description`, `industry`, `stage`, `location`, `asking_price`, `annual_revenue`, `annual_profit`, `years_in_business`, `employees`, `business_type`, `main_image`, `status`, `featured`, `verified`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `business_listings` (`id`, `user_id`, `title`, `slug`, `description`, `short_description`, `industry`, `stage`, `location`, `asking_price`, `annual_revenue`, `annual_profit`, `years_in_business`, `employees`, `business_type`, `main_image`, `status`, `featured`, `verified`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Established SaaS Platform for Small Businesses', 'established-saas-platform-for-small-businesses-1', 'Profitable SaaS platform serving 5,000+ small businesses across East Africa. Features include inventory management, accounting, and customer relationship management. Strong recurring revenue model with 95% customer retention rate.', 'Profitable SaaS platform with 5,000+ active users and strong recurring revenue.', 'Technology & Software', 'established', 'Nairobi, Kenya', 45000000, 12000000, 4800000, 5, 25, 'B2B', 'listing_1.jpg', 'active', 1, 1, NOW(), NOW()),
 (2, 3, 'Mobile App Development Company', 'mobile-app-development-company-2', 'Well-established mobile app development company with portfolio of 50+ successful apps. Team of 15 developers specializing in iOS and Android. Strong client relationships and proven track record.', 'Mobile app development company with 50+ successful apps and 15-person team.', 'Technology & Software', 'established', 'Mombasa, Kenya', 28000000, 8500000, 3200000, 4, 15, 'B2B', 'listing_2.jpg', 'active', 1, 1, NOW(), NOW()),
 (3, 4, 'Online Fashion Retail Store', 'online-fashion-retail-store-3', 'Successful online fashion retail store with 20,000+ active customers. Strong social media presence and brand recognition. Inventory includes clothing, accessories, and footwear. Established supply chain and logistics.', 'Online fashion store with 20,000+ customers and strong brand presence.', 'E-commerce & Retail', 'established', 'Nairobi, Kenya', 35000000, 15000000, 5500000, 6, 18, 'B2C', 'listing_3.jpg', 'active', 1, 1, NOW(), NOW()),
@@ -89,14 +89,14 @@ INSERT INTO `business_listings` (`id`, `user_id`, `title`, `slug`, `description`
 (34, 3, 'Footwear Manufacturing and Retail', 'footwear-manufacturing-and-retail-34', 'Footwear manufacturing company producing quality shoes and sandals. Manufacturing facility, retail stores, and wholesale distribution. Established brand and strong market presence.', 'Footwear manufacturer with retail stores and wholesale distribution.', 'Fashion & Apparel Business', 'established', 'Kisumu, Kenya', 38000000, 15000000, 6000000, 11, 35, 'B2B & B2C', 'listing_34.jpg', 'active', 0, 0, NOW(), NOW());
 
 -- Sample Buyers/Investors
-INSERT INTO `buyers` (`id`, `user_id`, `type`, `investment_criteria`, `min_investment`, `max_investment`, `verification_status`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `buyers` (`id`, `user_id`, `type`, `investment_criteria`, `min_investment`, `max_investment`, `verification_status`, `created_at`, `updated_at`) VALUES
 (0+1, 2, 'investor', 'Looking for profitable businesses with growth potential', 5000000, 50000000, 'verified', NOW(), NOW()),
 (1+1, 3, 'buyer', 'Looking for profitable businesses with growth potential', 10000000, 100000000, 'verified', NOW(), NOW()),
 (2+1, 4, 'both', 'Looking for profitable businesses with growth potential', 8000000, 80000000, 'pending', NOW(), NOW()),
 (3+1, 5, 'investor', 'Looking for profitable businesses with growth potential', 12000000, 150000000, 'pending', NOW(), NOW());
 
 -- Sample Donations (for campaigns)
-INSERT INTO `donations` (`id`, `campaigns_id`, `user_id`, `donation`, `approved`, `date`) VALUES
+INSERT IGNORE INTO `donations` (`id`, `campaigns_id`, `user_id`, `donation`, `approved`, `date`) VALUES
 (1, 1, 2, 50000, '1', NOW()),
 (2, 1, 3, 100000, '1', NOW()),
 (3, 1, 4, 25000, '1', NOW()),
