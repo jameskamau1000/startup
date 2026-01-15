@@ -13,6 +13,14 @@
 {{ trans('misc.campaigns') }}
   </a>
 
+<a href="{{ route('marketplace.my-listings') }}" class="dropdown-item">
+  My Business Listings
+  </a>
+
+<a href="{{ route('marketplace.buyer.dashboard') }}" class="dropdown-item">
+  Buyer/Investor Dashboard
+  </a>
+
 <a href="{{ url('user/likes') }}" class="dropdown-item">
   {{ trans('misc.likes') }}
   </a>
