@@ -40,11 +40,19 @@ class BuyerController extends Controller
             'max_investment' => 'nullable|numeric|min:0',
             'preferred_industries' => 'nullable|array',
             'preferred_stages' => 'nullable|array',
-            'preferred_locations' => 'nullable|array',
+            'preferred_locations_text' => 'nullable|string',
             'investment_goals' => 'nullable|string',
             'typical_deal_size_min' => 'nullable|integer|min:0',
             'typical_deal_size_max' => 'nullable|integer|min:0',
         ]);
+        
+        // Convert preferred_locations_text to array
+        if ($request->has('preferred_locations_text') && !empty($request->preferred_locations_text)) {
+            $locations = array_map('trim', explode(',', $request->preferred_locations_text));
+            $validated['preferred_locations'] = array_filter($locations);
+        }
+        
+        unset($validated['preferred_locations_text']);
         
         $validated['user_id'] = Auth::id();
         $validated['verification_status'] = 'pending';

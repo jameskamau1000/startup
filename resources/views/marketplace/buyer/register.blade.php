@@ -184,7 +184,7 @@
 
             <div class="form-group mb-3">
               <label for="preferred_locations">Preferred Locations</label>
-              <textarea name="preferred_locations[]" id="preferred_locations" class="form-control" rows="3" placeholder="Enter locations separated by commas (e.g., Nairobi, Kenya, Mombasa, Kenya)">{{ old('preferred_locations') ? implode(', ', old('preferred_locations')) : '' }}</textarea>
+              <textarea name="preferred_locations_text" id="preferred_locations" class="form-control" rows="3" placeholder="Enter locations separated by commas (e.g., Nairobi, Kenya, Mombasa, Kenya)">{{ old('preferred_locations_text') }}</textarea>
               <small class="text-muted">Enter locations separated by commas. Leave empty for all locations.</small>
             </div>
           </div>
