@@ -22,9 +22,16 @@ class ViewServiceProvider extends ServiceProvider
 		try {
 			\DB::connection()->getPdo();
 		} catch (\Exception $e) {
+			// Database not available - don't share settings
+			// This will be handled by the exception handler
 			return false;
 		}
 
-		view()->share('settings', AdminSettings::first());
+		try {
+			view()->share('settings', AdminSettings::first());
+		} catch (\Exception $e) {
+			// Settings not available - continue without sharing
+			return false;
+		}
 	}
 }

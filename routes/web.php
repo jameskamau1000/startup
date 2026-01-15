@@ -453,10 +453,6 @@ Route::get('gallery', 'HomeController@gallery');
 Route::get('blog', 'BlogController@blog');
 Route::get('blog/post/{id}/{slug?}', 'BlogController@post');
 
-Route::get('installer/script','InstallScriptController@wizard');
-Route::post('installer/script/database','InstallScriptController@database');
-Route::post('installer/script/user','InstallScriptController@user');
-
 Route::get('campaigns/ended','HomeController@campaignsEnded');
 
 Route::get('change/lang/{id}', function($id){

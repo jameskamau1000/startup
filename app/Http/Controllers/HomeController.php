@@ -23,8 +23,8 @@ class HomeController extends Controller
       // Check Datebase access
       AdminSettings::first();
     } catch (\Exception $e) {
-      // Redirect to Installer
-      return redirect('installer/script');
+      // Show maintenance page for database errors
+      abort(503);
     }
 
     $settings = AdminSettings::first();
