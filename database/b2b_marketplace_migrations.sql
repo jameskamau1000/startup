@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `business_listings` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Seller user ID',
+  `user_id` int(10) UNSIGNED NOT NULL COMMENT 'Seller user ID',
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `description` text NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `business_listings` (
   `views` int(11) NOT NULL DEFAULT 0,
   `inquiries` int(11) NOT NULL DEFAULT 0,
   `approved_at` timestamp NULL DEFAULT NULL,
-  `approved_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `approved_by` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `business_listings` (
 
 CREATE TABLE IF NOT EXISTS `buyers` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `type` enum('buyer','investor','both') NOT NULL DEFAULT 'buyer',
   `investment_criteria` text DEFAULT NULL,
   `min_investment` decimal(15,2) DEFAULT NULL,
@@ -91,8 +91,8 @@ CREATE TABLE IF NOT EXISTS `buyers` (
 CREATE TABLE IF NOT EXISTS `business_messages` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `business_listing_id` bigint(20) UNSIGNED NOT NULL,
-  `sender_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Buyer/Investor user ID',
-  `receiver_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Seller user ID',
+  `sender_id` int(10) UNSIGNED NOT NULL COMMENT 'Buyer/Investor user ID',
+  `receiver_id` int(10) UNSIGNED NOT NULL COMMENT 'Seller user ID',
   `message` text NOT NULL,
   `read` tinyint(1) NOT NULL DEFAULT 0,
   `read_at` timestamp NULL DEFAULT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `business_messages` (
 CREATE TABLE IF NOT EXISTS `business_valuations` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `business_listing_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Who requested the valuation',
+  `user_id` int(10) UNSIGNED NOT NULL COMMENT 'Who requested the valuation',
   `estimated_value` decimal(15,2) NOT NULL,
   `min_value` decimal(15,2) DEFAULT NULL,
   `max_value` decimal(15,2) DEFAULT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `business_valuations` (
   `valuation_report` text DEFAULT NULL COMMENT 'Detailed report',
   `valuation_factors` json DEFAULT NULL COMMENT 'Key factors considered',
   `status` enum('pending','completed','rejected') NOT NULL DEFAULT 'pending',
-  `valued_by` bigint(20) UNSIGNED DEFAULT NULL COMMENT 'Expert who did valuation',
+  `valued_by` int(10) UNSIGNED DEFAULT NULL COMMENT 'Expert who did valuation',
   `completed_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `investment_opportunities` (
 CREATE TABLE IF NOT EXISTS `investments` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `investment_opportunity_id` bigint(20) UNSIGNED NOT NULL,
-  `investor_id` bigint(20) UNSIGNED NOT NULL,
+  `investor_id` int(10) UNSIGNED NOT NULL,
   `amount` decimal(15,2) NOT NULL,
   `status` enum('pending','approved','rejected','completed') NOT NULL DEFAULT 'pending',
   `notes` text DEFAULT NULL,
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `investments` (
 CREATE TABLE IF NOT EXISTS `business_inquiries` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `business_listing_id` bigint(20) UNSIGNED NOT NULL,
-  `buyer_id` bigint(20) UNSIGNED NOT NULL,
+  `buyer_id` int(10) UNSIGNED NOT NULL,
   `message` text DEFAULT NULL,
   `status` enum('pending','responded','closed') NOT NULL DEFAULT 'pending',
   `responded_at` timestamp NULL DEFAULT NULL,
